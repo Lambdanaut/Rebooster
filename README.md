@@ -1,7 +1,7 @@
 Rebooster - A bot for boosting specific tags in Mastodon
 ==========================================================
 
-Rebooster is a bot written in Python3 by [Lambdanaut@sunbeam.city](https://sunbeam.city/@Lambdanaut) that you can use to boost Mastodon content tagged with specific tags. 
+Rebooster is an easy-to-use bot written in Python3 by [Lambdanaut@mastodon.gamedev.place](https://mastodon.gamedev.place/@Lambdanaut) that you can use to boost Mastodon content tagged with specific tags. 
 
 
 How to install and run it
@@ -15,4 +15,3 @@ How to install and run it
 * Edit `config.py` to have your bot's Mastodon credentials, and fill out the tags you would like to boost
 * Run the bot with `python3 rebooster.py`
 * Check out your bot's feed. It should be boosting any new toots with your specified hashtags.
-
