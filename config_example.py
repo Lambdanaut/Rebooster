@@ -15,4 +15,7 @@ USERNAME = 'username@emaildomain.com'
 PASSWORD = 'yourpassword'
 
 # Tags that your bot will reboost
-TAGS = ['tag1', 'tag2', 'tag3',]
+TAGS = ['tag1', 'tag2', 'tag3', ]
+
+# If the author is on one of these servers, ignore the post
+IGNORE_SERVERS = ['botsin.space', ]
