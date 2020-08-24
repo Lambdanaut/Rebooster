@@ -11,19 +11,19 @@ CLIENT_CRED_FILE = '{}_clientcred.secret'.format(config.CLIENT_NAME.lower())
 
 print("Initializing HashtagGamedev Bot")
 print("===============================")
+print(" > Connecting to {}".format(config.API_BASE_URL))
 
 try:
-    f = open(CLIENT_CRED_FILE)
+    with open(CLIENT_CRED_FILE) as f:
+        print(' > Found pre-existing CLIENT_CRED_FILE')
+
 except IOError:
     # If the CLIENT_CRED_FILE doesn't exist, connect to Mastodon, get secrets, and create the cred file.
+    print(' > No CLIENT_CRED_FILE found. Creating new one')
     Mastodon.create_app(
      config.CLIENT_NAME,
      api_base_url = config.API_BASE_URL,
      to_file = CLIENT_CRED_FILE)
-finally:
-    f.close()
-
-print(" > Connecting to {}".format(config.API_BASE_URL))
 
 # Create client
 mastodon = Mastodon(
