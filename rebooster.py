@@ -51,7 +51,13 @@ def run():
             tag = tag.lower().strip("# ")
             print(" > Reading timeline for new toots tagged #{}".format(tag))
 
-            statuses = mastodon.timeline_hashtag(tag, local=False, limit=TIMELINE_DEPTH_LIMIT)
+            try:
+                statuses = mastodon.timeline_hashtag(tag, local=False, limit=TIMELINE_DEPTH_LIMIT)
+            except ConnectionResetError:
+                print(" ! Network error while attempting to fetch statuses. Trying again...")
+                time.sleep(30)
+                continue
+
             for status in statuses:
                 domain = urlparse(status.url).netloc
                 if not status.favourited and \
