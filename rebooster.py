@@ -55,7 +55,7 @@ print("------------------------")
 while True:
     for tag in config.TAGS:
         tag = tag.lower().strip("# ")
-        print(" > Reading timeline for tag #{}".format(tag))
+        print(" > Reading timeline for new toots tagged #{}".format(tag))
 
         statuses = mastodon.timeline_hashtag(tag, local=False)
         for status in statuses:
@@ -67,5 +67,6 @@ while True:
                 mastodon.status_favourite(status.id)
 
     # Sleep for a bit and then try again
-    print(" > Sleeping for {} seconds".format(TIME_TO_SLEEP))
+    print(" > Sleeping for {} minutes".format(TIME_TO_SLEEP // 60))
+    print("--------------------------")
     time.sleep(TIME_TO_SLEEP)
