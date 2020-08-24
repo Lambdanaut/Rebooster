@@ -9,7 +9,7 @@ except ModuleNotFoundError:
     import sys; sys.exit()
 
 # Constants
-TIME_TO_SLEEP = 180 # 180 seconds = 3 minutes
+TIME_TO_SLEEP = 1800 # 1800 seconds = 30 minutes
 CLIENT_CRED_FILE = '{}_clientcred.secret'.format(config.CLIENT_NAME.lower())
 
 
