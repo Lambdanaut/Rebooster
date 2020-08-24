@@ -49,6 +49,13 @@ mastodon.log_in(
 )
 
 print(" > Successfully logged in")
+print(" > Fetching account data")
+
+account = mastodon.me()
+
+print(" > Fetched account data for {}".format(account.acct))
+
+print(" > ")
 print(" > Beginning search-loop")
 print("------------------------")
 
@@ -59,7 +66,7 @@ while True:
 
         statuses = mastodon.timeline_hashtag(tag, local=False)
         for status in statuses:
-            if not status.favourited:
+            if not status.favourited and status.account.acct != account.acct:
                 # Boost and favorite the new status
                 print('   * Boosting new toot by {} using tag #{} viewable at: {}'.format(
                     status.account.username, tag, status.url))
