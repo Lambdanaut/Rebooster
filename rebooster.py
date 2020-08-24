@@ -13,7 +13,7 @@ TIME_TO_SLEEP = 180 # 180 seconds = 3 minutes
 CLIENT_CRED_FILE = '{}_clientcred.secret'.format(config.CLIENT_NAME.lower())
 
 
-print("Initializing HashtagGamedev Bot")
+print("Initializing {} Bot".format(config.CLIENT_NAME))
 print("===============================")
 print(" > Connecting to {}".format(config.API_BASE_URL))
 
@@ -61,7 +61,7 @@ while True:
         for status in statuses:
             if not status.favourited:
                 # Boost and favorite the new status
-                print('   * Reboosting new toot by {} using tag #{} viewable at: {}'.format(
+                print('   * Boosting new toot by {} using tag #{} viewable at: {}'.format(
                     status.account.username, tag, status.url))
                 mastodon.status_reblog(status.id)
                 mastodon.status_favourite(status.id)
