@@ -2,7 +2,11 @@ import time
 
 from mastodon import Mastodon
 
-import config
+try:
+    import config
+except ModuleNotFoundError:
+    print("ERROR: You must rename `config_example.py` to `config.py` and edit it with your account credentials.")
+    import sys; sys.exit()
 
 # Constants
 TIME_TO_SLEEP = 180 # 180 seconds = 3 minutes
@@ -15,15 +19,19 @@ print(" > Connecting to {}".format(config.API_BASE_URL))
 
 try:
     with open(CLIENT_CRED_FILE) as f:
-        print(' > Found pre-existing CLIENT_CRED_FILE')
+        print(' > Found pre-existing secrets file')
 
 except IOError:
     # If the CLIENT_CRED_FILE doesn't exist, connect to Mastodon, get secrets, and create the cred file.
-    print(' > No CLIENT_CRED_FILE found. Creating new one')
-    Mastodon.create_app(
-     config.CLIENT_NAME,
-     api_base_url = config.API_BASE_URL,
-     to_file = CLIENT_CRED_FILE)
+    print(' > No secrets file found. Auto-generating a new one')
+    try:
+        Mastodon.create_app(
+         config.CLIENT_NAME,
+         api_base_url = config.API_BASE_URL,
+         to_file = CLIENT_CRED_FILE)
+    except:
+        print(' > Error connecting to Mastodon. Client secrets could not be generated')
+        raise
 
 # Create client
 mastodon = Mastodon(
@@ -42,6 +50,7 @@ mastodon.log_in(
 
 print(" > Successfully logged in")
 print(" > Beginning search-loop")
+print("------------------------")
 
 while True:
     for tag in config.TAGS:

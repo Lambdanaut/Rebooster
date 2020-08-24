@@ -1,3 +1,7 @@
+##########################################################
+# Rename this file to config.py before running rebooster
+##########################################################
+
 # Your bot's name
 CLIENT_NAME = 'YourAppsName'
 
