@@ -12,7 +12,7 @@ except ModuleNotFoundError:
 # Constants
 TIME_TO_SLEEP = 1800  # 1800 seconds = 30 minutes
 CLIENT_CRED_FILE = '{}_clientcred.secret'.format(config.CLIENT_NAME.lower())
-TIMELINE_DEPTH_LIMIT = 5  # How many of the latest statuses to pull per tag. 
+TIMELINE_DEPTH_LIMIT = 2  # How many of the latest statuses to pull per tag. 
 
 def run():
     print("")
@@ -25,7 +25,7 @@ def run():
     mastodon = Mastodon(
         client_id = CLIENT_CRED_FILE,
         api_base_url = config.API_BASE_URL,
-    )
+    )   
 
     print(" > Logging in as {} with password <TRUNCATED>".format(config.USERNAME))
 
@@ -53,7 +53,7 @@ def run():
 
             try:
                 statuses = mastodon.timeline_hashtag(tag, local=False, limit=TIMELINE_DEPTH_LIMIT)
-            except ConnectionResetError:
+            except:
                 print(" ! Network error while attempting to fetch statuses. Trying again...")
                 time.sleep(30)
                 continue
