@@ -15,3 +15,6 @@ How to install and run it
 * Edit `config.py` to have your bot's Mastodon credentials, and fill out the tags you would like to boost
 * Run the bot with `python3 rebooster.py`
 * Check out your bot's feed. It should be boosting any new toots with your specified hashtags.
+
+
+![A bot running](http://jonathanpiresbot.png)
