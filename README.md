@@ -17,4 +17,4 @@ How to install and run it
 * Check out your bot's feed. It should be boosting any new toots with your specified hashtags.
 
 
-![A bot running](http://jonathanpiresbot.png)
+![Rebooster running in Windows](https://github.com/Lambdanaut/Rebooster/blob/master/screenshots/jonathanpiresbot.png)
