@@ -14,6 +14,7 @@ TIME_TO_SLEEP = 1800  # 1800 seconds = 30 minutes
 CLIENT_CRED_FILE = '{}_clientcred.secret'.format(config.CLIENT_NAME.lower())
 TIMELINE_DEPTH_LIMIT = 2  # How many of the latest statuses to pull per tag. 
 
+
 def run():
     print("")
     print("Initializing {} Bot".format(config.CLIENT_NAME))
@@ -74,6 +75,7 @@ def run():
         print("--------------------------")
         time.sleep(TIME_TO_SLEEP)
 
+
 def setup_client_cred_file():
     try:
         with open(CLIENT_CRED_FILE) as f:
@@ -90,6 +92,7 @@ def setup_client_cred_file():
         except:
             print(' > Error connecting to Mastodon. Client secrets could not be generated')
             raise
+
 
 if __name__ == '__main__':
     run()
