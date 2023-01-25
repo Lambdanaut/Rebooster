@@ -1,7 +1,7 @@
 Rebooster - A bot for boosting specific tags in Mastodon
 ==========================================================
 
-Rebooster is an easy-to-use bot written in Python3 by [Lambda@mescl.in](https://mescl.in/Lambda) that you can use to boost Mastodon content tagged with specific tags. 
+Rebooster is an easy-to-use bot written in Python3 by [Lambda@mescl.in](https://mescl.in/Lambda) that you can use to boost Mastodon, Pleroma, and other Fediverse content tagged with specific tags. 
 
 
 How to install and run it
