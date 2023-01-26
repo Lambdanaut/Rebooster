@@ -59,6 +59,9 @@ def run():
                 time.sleep(30)
                 continue
 
+            # Sleep momentarily so we don't get rate limited.
+            time.sleep(0.1)
+
             for status in statuses:
                 domain = urlparse(status.url).netloc
                 if not status.favourited and \
