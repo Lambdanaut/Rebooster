@@ -66,6 +66,7 @@ def run():
                 domain = urlparse(status.url).netloc
                 if not status.favourited and \
                         status.account.acct != account.acct and \
+                        status.account.acct not in config.IGNORE_AUTHORS and \
                         domain not in config.IGNORE_SERVERS:
                     # Boost and favorite the new status
                     print('   * Boosting new toot by {} using tag #{} viewable at: {}'.format(
