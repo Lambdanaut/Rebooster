@@ -1,5 +1,6 @@
 __pycache__/*
 *.swp
+*.pyc
 
 config.py
 *.secret
